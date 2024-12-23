@@ -1,0 +1,60 @@
+{# welcome.html #}
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container ">
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {% load static %}
+                <img src="{% static 'img/acerca1.png' %}"  class="d-block w-100" alt="nort">
+            </div>
+            <div class="carousel-item active">
+                {% load static %}
+                <img src="{% static 'img/acerca2.png' %}"  class="d-block w-100" alt="nort">
+            </div>
+            <div class="carousel-item active">
+                {% load static %}
+                <img src="{% static 'img/acerca1.png' %}"  class="d-block w-100" alt="nort">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<section id="highlight" class=" d-flex justify-content-center align-items-center">
+    <div class="w-75 align-items-center container pb-5">
+        <h2 class="container mt-2 text-center">Nuestros Deliciosos Productos</h2>
+        <hr>    
+        <div class="row g-4">
+            {% for flan in flanes%}
+            <div class="col-xl-3 col-md-6 col-sm-12">
+                <div class="card mt-3">
+                    {% load static %}
+                    <img class="card-img-top" src={{flan.img_url}}  alt="Card image cap">
+                    <div class="card-body">
+                        <h4>{{flan.name}}</h4>
+                        <h5>{{flan.precio}}</h5>
+                        <p class="card-text">{{flan.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+<!-- {% block login%}
+{% include 'login.html' %}
+{% endblock %}
+ -->
